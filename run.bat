@@ -1,1 +1,0 @@
-game_sf_template.o

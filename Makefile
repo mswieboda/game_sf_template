@@ -10,13 +10,16 @@ SFML_MAC_DIR = /Users/matt/code/libs/SFML-2.5.1-macos-clang
 build_and_test: clean test
 
 clean:
+
 ifeq ($(OS),Windows_NT)
-	echo "cleaning..."
-	rmdir /S /Q ${BUILD_DIR}
-	mkdir ${BUILD_DIR}
+	@if exist ${BUILD_DIR} ( @echo cleaning... && @rmdir /S /Q ${BUILD_DIR}; )
 else
-	if [ ! -d "./${BUILD_DIR}" ]; then mkdir "${BUILD_DIR}"; else env echo "cleaning..." && rm -r ${BUILD_DIR}; mkdir "${BUILD_DIR}"; fi
+	if [[ -d ${BUILD_DIR} ]]; then
+		@env echo "cleaning..."
+		@rm -r ${BUILD_DIR}
+	fi
 endif
+	@mkdir ${BUILD_DIR}
 
 build_test:
 	${CC} ${SOURCE_FILES} -o ${OUT_FILE}_test.o --error-trace
@@ -32,7 +35,8 @@ release: clean ${OUT_FILE}.o
 
 winpack: clean ${OUT_FILE}.o
 ifeq ($(OS),Windows_NT)
-	copy run.bat ${BUILD_DIR}
+	copy game_sf_template.exe ${BUILD_DIR}
+	rename ${BUILD_DIR}\\${NAME}.o main.o
 	copy "${SFML_DLL_DIR}\\*.dll" ${BUILD_DIR}
 	xcopy /E assets ${BUILD_DIR}\\assets\\
 	rename ${BUILD_DIR} ${NAME}
