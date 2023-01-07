@@ -9,7 +9,8 @@ module GameSFTemplate::Scene
       @start_scene = nil
       @items = GSF::MenuItems.new(
         font: Font.default,
-        labels: ["start", "options", "exit"]
+        labels: ["start", "options", "exit"],
+        initial_focused_index: 0
       )
     end
 
