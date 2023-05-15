@@ -1,5 +1,5 @@
 name: game_sf_template
-version: 0.1.0
+version: 0.1.1
 
 authors:
   - Matt Swieboda <mswieboda@users.noreply.github.com>
@@ -11,8 +11,8 @@ targets:
 dependencies:
   game_sf:
     github: mswieboda/game_sf
-    version: 0.12.0
+    version: 0.14.0
 
-crystal: 1.6.2
+crystal: '>= 1.8.2'
 
 license: MIT
