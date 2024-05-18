@@ -1,6 +1,7 @@
 NAME=game_sf_template
 SHELL = /bin/sh
-CC = crystal build
+OPTS = CRYSTAL_OPTS="--link-flags=-Wl,-ld_classic"
+CC = ${OPTS} crystal build
 BUILD_DIR = build
 OUT_FILE = ${BUILD_DIR}/${NAME}
 SOURCE_FILES = src/${NAME}.cr
@@ -32,7 +33,7 @@ release: clean ${OUT_FILE}.o
 
 winpack: clean ${OUT_FILE}.o
 ifeq ($(OS),Windows_NT)
-	copy game_sf_template.exe ${BUILD_DIR}
+	copy ${NAME}.exe ${BUILD_DIR}
 	rename ${BUILD_DIR}\\${NAME}.o main.o
 	copy "${SFML_DLL_DIR}\\*.dll" ${BUILD_DIR}
 	xcopy /E assets ${BUILD_DIR}\\assets\\
