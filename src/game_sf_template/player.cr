@@ -1,28 +1,27 @@
 module GameSFTemplate
   class Player
-    getter x : Int32
-    getter y : Int32
+    getter x : Int32 | Float32
+    getter y : Int32 | Float32
     getter animations
 
-    Speed = 15
+    AnimationFPS = 8
+    Size = 128
+    Speed = 640
     Sheet = "./assets/player.png"
 
     def initialize(x = 0, y = 0)
       # sprite size
-      size = 128
       @x = x
       @y = y
 
       # init animations
-      fps = 60
-
       # idle
-      idle = GSF::Animation.new((fps / 3).to_i, loops: false)
+      idle = GSF::Animation.new(AnimationFPS, loops: false)
       idle.add(Sheet, 0, 0, size, size)
 
       # fire animation
       fire_frames = 3
-      fire = GSF::Animation.new((fps / 25).to_i, loops: false)
+      fire = GSF::Animation.new(AnimationFPS, loops: false)
 
       fire_frames.times do |i|
         fire.add(Sheet, i * size, 0, size, size)
@@ -32,33 +31,59 @@ module GameSFTemplate
       animations.add(:fire, fire)
     end
 
+    def size
+      Size
+    end
+
     def update(frame_time, keys : Keys)
       animations.update(frame_time)
 
-      update_movement(keys)
+      update_movement(frame_time, keys)
     end
 
-    def update_movement(keys : Keys)
+    def update_movement(frame_time, keys : Keys)
+      dx = 0
       dy = 0
 
-      if keys.pressed?(Keys::Up)
-        dy -= Speed
-      elsif keys.pressed?(Keys::Down)
-        dy += Speed
-      end
+      dy -= 1 if keys.pressed?([Keys::W])
+      dx -= 1 if keys.pressed?([Keys::A])
+      dy += 1 if keys.pressed?([Keys::S])
+      dx += 1 if keys.pressed?([Keys::D])
 
-      if y + dy > 0 && y + dy < GSF::Screen.height
-        move(0, dy)
-      end
+      return if dx == 0 && dy == 0
+
+      dx, dy = move_with_speed(frame_time, dx, dy)
+      dx, dy = move_with_level(dx, dy)
+
+      return if dx == 0 && dy == 0
+
+      move(dx, dy)
+    end
+
+    def move_with_speed(frame_time, dx, dy)
+      speed = Speed
+      directional_speed = dx != 0 && dy != 0 ? speed / 1.4142 : speed
+      dx *= (directional_speed * frame_time).to_f32
+      dy *= (directional_speed * frame_time).to_f32
+
+      {dx, dy}
+    end
+
+    def move_with_level(dx, dy)
+      # screen collisions
+      dx = 0 if x + dx < 0 || x + dx + size > Screen.width
+      dy = 0 if y + dy < 0 || y + dy + size > Screen.height
+
+      {dx, dy}
+    end
+
+    def move(dx, dy)
+      @x += dx
+      @y += dy
     end
 
     def draw(window : SF::RenderWindow)
       animations.draw(window, x, y)
-    end
-
-    def move(dx : Int32, dy : Int32)
-      @x += dx
-      @y += dy
     end
   end
 end
