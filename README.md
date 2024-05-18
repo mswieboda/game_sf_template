@@ -1,5 +1,13 @@
 # Game SF Template
 
+## Rename
+
+To use this template, use the rename script, and follow the prompts, to automatically replace all text, and rename all files and folders from the example of `GameSFTemplate`, `game_sf_template` and `Game SF Template`.
+
+```
+make rename
+```
+
 ## Installation
 
 [install SFML](https://github.com/oprypin/crsfml#install-sfml)
