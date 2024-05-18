@@ -12,6 +12,21 @@ shards install
 
 if compiling/installing from Windows, please follow [`game_sf`](https://github.com/mswieboda/game_sf) windows instructions
 
+
+### Linter
+
+```
+bin/ameba
+```
+
+or
+
+```
+bin/ameba --fix
+bin/ameba --gen-config
+```
+etc, see [ameba](https://github.com/crystal-ameba/ameba)
+
 ## Compiling
 
 ### Dev / Test

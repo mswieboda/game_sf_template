@@ -8,6 +8,10 @@ targets:
   game_sf_template:
     main: src/game_sf_template.cr
 
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+
 dependencies:
   game_sf:
     github: mswieboda/game_sf
