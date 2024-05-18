@@ -41,7 +41,7 @@
 	<key>InterpreterPath</key>
 	<string>/bin/sh</string>
 	<key>Name</key>
-	<string>game_sf_template</string>
+	<string>Game SF Template</string>
 	<key>NibPath</key>
 	<string>/usr/local/share/platypus/MainMenu.nib</string>
 	<key>OptimizeApplication</key>

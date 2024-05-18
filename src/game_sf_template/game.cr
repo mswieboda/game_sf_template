@@ -15,7 +15,7 @@ module GameSFTemplate
         style = SF::Style::Default
       {% end %}
 
-      super(title: "game_sf_template", mode: mode, style: style)
+      super(title: "Game SF Template", mode: mode, style: style)
 
       @stage = Stage.new(window)
     end

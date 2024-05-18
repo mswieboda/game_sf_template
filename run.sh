@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-dir=`dirname "$0"`
-
+DIR=`dirname "$0"`
+NAME=game_sf_template
 LIB=/usr/local/lib
 FRAMEWORKS=/Library/Frameworks
 
@@ -13,7 +13,7 @@ SFML_EXTLIB=OpenAL.framework/OpenAL
 if ! [[ -f $LIB/$SFML_SYSTEM_LIB ]]; then
   echo "$LIB/$SFML_SYSTEM_LIB does not exist."
   echo "installing SFML libraries to $LIB ..."
-  cp $dir/sfml/lib/* $LIB
+  cp $DIR/sfml/lib/* $LIB
   echo "installed SFML libraries to $LIB"
 fi
 
@@ -21,8 +21,8 @@ fi
 if ! [[ -f $FRAMEWORKS/$SFML_EXTLIB ]]; then
   echo "$FRAMEWORKS/$SFML_EXTLIB does not exist."
   echo "installing SFML external dependencies to $FRAMEWORKS (requires password) ..."
-  sudo cp -r $dir/sfml/extlibs/* $FRAMEWORKS
+  sudo cp -r $DIR/sfml/extlibs/* $FRAMEWORKS
   echo "installed SFML external dependencies to $FRAMEWORKS"
 fi
 
-$dir/game_sf_template.o
+$DIR/$NAME.o

@@ -51,3 +51,7 @@ macpack: clean ${OUT_FILE}.o
 	cp -r ${OUT_FILE}.app ${NAME}/${NAME}.app
 	7zz a -tzip -mx9 ${BUILD_DIR}/${NAME}-mac.zip ${NAME}/${NAME}.app
 	rm -rf ${NAME}
+
+rename: clean
+	${CC} src/rename.cr -o ${BUILD_DIR}/rename.o --error-trace
+	./${BUILD_DIR}/rename.o

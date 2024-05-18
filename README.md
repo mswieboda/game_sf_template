@@ -1,4 +1,4 @@
-# game_sf_template
+# Game SF Template
 
 ## Installation
 
