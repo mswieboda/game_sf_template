@@ -9,20 +9,22 @@ class Rename
     "README.md",
     "run.sh",
     "shard.yml",
-    "src/game_sf_template.cr",
-    "src/game_sf_template/font.cr",
-    "src/game_sf_template/game.cr",
-    "src/game_sf_template/hud.cr",
-    "src/game_sf_template/player.cr",
-    "src/game_sf_template/stage.cr",
-    "src/game_sf_template/scene/main.cr",
-    "src/game_sf_template/scene/start.cr"
+    "src/#{FileName}.cr",
+    "src/rename.cr",
+    "src/#{FileName}/font.cr",
+    "src/#{FileName}/game.cr",
+    "src/#{FileName}/hud.cr",
+    "src/#{FileName}/player.cr",
+    "src/#{FileName}/stage.cr",
+    "src/#{FileName}/scene/main.cr",
+    "src/#{FileName}/scene/start.cr"
   ]
   RenameFiles = [
-    "src/game_sf_template.cr"
+    "#{FileName}.exe",
+    "src/#{FileName}.cr"
   ]
   RenameDirectories = [
-    "src/game_sf_template"
+    "src/#{FileName}"
   ]
   ReadmeFile = "README.md"
 
