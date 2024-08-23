@@ -26,16 +26,16 @@ module GameSFTemplate::Scene
     end
 
     def update(frame_time, keys : Keys, mouse : Mouse, joysticks : Joysticks)
-      items.update(frame_time, keys, mouse)
+      items.update(frame_time, keys, mouse, joysticks)
 
-      if keys.just_pressed?([Keys::Space, Keys::Enter])
+      if items.selected?(keys, mouse, joysticks)
         case items.focused_label
         when "start"
           @start_scene = :main
         when "exit"
           @exit = true
         end
-      elsif keys.just_pressed?(Keys::Escape)
+      elsif keys.just_pressed?(Keys::Escape) || joysticks.just_pressed?(Joysticks::Back)
         @exit = true
       end
     end
