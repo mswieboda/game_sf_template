@@ -6,7 +6,7 @@ module GameSFTemplate::Scene
     getter hud
     getter player
 
-    def initialize(window)
+    def initialize
       super(:main)
 
       @player = Player.new(x: 300, y: 300)

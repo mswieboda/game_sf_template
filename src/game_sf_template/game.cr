@@ -17,7 +17,7 @@ module GameSFTemplate
 
       super(title: "Game SF Template", mode: mode, style: style)
 
-      @stage = Stage.new(window)
+      @stage = Stage.new
     end
   end
 end
