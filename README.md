@@ -16,7 +16,7 @@ The rename won't work on Windows until using the command line prompt works, I co
 
 ## Windows
 
-if compiling/installing from Windows, please first run:
+if compiling/installing from Windows, in an `x64 Native Tools Command Prompt for VS 2019` command line (see [https://github.com/mswieboda/game_sf?tab=readme-ov-file#installation](game_sf) Windows Installation instructions) please first run:
 
 ```
 win_shards_install.bat
