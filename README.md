@@ -2,23 +2,44 @@
 
 ## Rename
 
+Currently only works on Mac or Linux.
+
 To use this template, use the rename script, and follow the prompts, to automatically replace all text, and rename all files and folders from the example of `GameSFTemplate`, `game_sf_template` and `Game SF Template`.
 
 ```
 make rename
 ```
 
+The rename won't work on Windows until using the command line prompt works, I could in the meantime make a custom batch script, but I probably won't do that for now.
+
 ## Installation
+
+## Windows
+
+if compiling/installing from Windows, please first run:
+
+```
+win_shards_install.bat
+```
+
+to install shards and clone crsfml v2.5.3 and compile it for windows directly
+
+then run:
+
+```
+win_shards_postinstall.bat
+```
+
+to copy the specific Window crsfml v2.5.3 compiled files to this `lib/crsfml`
+
+
+## Mac or Linux
 
 [install SFML](https://github.com/oprypin/crsfml#install-sfml)
 
 ```
 shards install
 ```
-
-### Windows
-
-if compiling/installing from Windows, please follow [`game_sf`](https://github.com/mswieboda/game_sf) windows instructions
 
 
 ### Linter
