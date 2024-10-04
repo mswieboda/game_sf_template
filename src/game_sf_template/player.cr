@@ -4,7 +4,7 @@ module GameSFTemplate
     getter y : Int32 | Float32
     getter animations
 
-    AnimationFPS = 8
+    AnimationDuration = 125
     Size = 128
     Speed = 640
     Sheet = "./assets/player.png"
@@ -16,15 +16,15 @@ module GameSFTemplate
 
       # init animations
       # idle
-      idle = GSF::Animation.new(AnimationFPS, loops: false)
+      idle = GSF::Animation.new(loops: false)
       idle.add(Sheet, 0, 0, size, size)
 
       # fire animation
       fire_frames = 3
-      fire = GSF::Animation.new(AnimationFPS, loops: false)
+      fire = GSF::Animation.new(loops: false)
 
       fire_frames.times do |i|
-        fire.add(Sheet, i * size, 0, size, size)
+        fire.add(Sheet, i * size, 0, size, size, duration_ms: AnimationDuration)
       end
 
       @animations = GSF::Animations.new(:idle, idle)
