@@ -32,9 +32,8 @@ release: clean ${OUT_FILE}.o
 winpack: clean ${OUT_FILE}.exe
 	cp ${SFML_DLL_DIR}/*.dll ${BUILD_DIR}
 	cp -r assets ${BUILD_DIR}/assets
-	mv ${BUILD_DIR} ${NAME}-win
-	7z a -tzip -mx9 ${NAME}-win/${NAME}-win.zip ${NAME}-win/*
-	mv ${NAME}-win ${BUILD_DIR}
+	cd ${BUILD_DIR} && 7z a -tzip -mx9 ${NAME}-win.zip .
+	cd ..
 
 macpack: clean ${OUT_FILE}.o
 	mkdir ${BUILD_DIR}/sfml
