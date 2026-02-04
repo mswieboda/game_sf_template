@@ -36,7 +36,9 @@ to copy the specific Window crsfml v2.5.3 compiled files to this `lib/crsfml`
 ## Mac or Linux
 
 [install SFML](https://github.com/oprypin/crsfml#install-sfml)
+
 NOTE: brew SFML is updated past 2.5, need to install via custom brew tap instead: https://github.com/mswieboda/homebrew-sfml/
+
 ```
 brew install mswieboda/sfml/sfml@2.5
 ```
