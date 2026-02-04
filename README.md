@@ -43,6 +43,8 @@ NOTE: brew SFML is updated past 2.5, need to install via custom brew tap instead
 brew install mswieboda/sfml/sfml@2.5
 ```
 
+once SFML 2.5.x is installed, then you can install the crystal shards:
+
 ```
 shards install
 ```
